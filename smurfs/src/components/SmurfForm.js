@@ -56,11 +56,11 @@ function SmurfForm() {
                     name="height"
                     value={input.height}
                     onChange={handleInputChange}
-                    type="text"
+                    type="number"
                     placeholder="height in cm"
                 />
             </label>
-
+            <button className="editSubmit">{smurfToEdit ? 'edit smurf' : 'add smurf'}</button>
         </form>
     );
 }

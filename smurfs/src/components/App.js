@@ -28,7 +28,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>smurf village</h1>
+            <h1>Smurf Village!</h1>
             <SmurfForm />
             {smurfs.map(smurf => {
                 return (

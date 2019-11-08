@@ -8,7 +8,7 @@ export const getSmurfs = () => dispatch => {
     dispatch({ type: FETCH_START });
     axios
         .get("http://localhost:3333/smurfs")
-        .then(res => {
+        .then(res => { console.log(res.data) ||
             dispatch({ type: FETCH_SUCCESS, payload: res.data });
         })
         .catch(err => {
@@ -24,7 +24,7 @@ export const addSmurf = newSmurf => dispatch => {
     dispatch({ type: POST_START });
     axios
         .post("http://localhost:3333/smurfs", newSmurf)
-        .then(res => {
+        .then(res => { console.log(res.data) ||
             dispatch({ type: POST_SUCCESS, payload: res.data });
         })
         .catch(err => {
@@ -39,7 +39,7 @@ export const DELETE_ERROR = "DELETE_ERROR";
 export const deleteSmurf = id => dispatch => {
     dispatch({ type: DELETE_START });
     axios.delete(`http://localhost:3333/smurfs/${id}`)
-        .then(res => {
+        .then(res => { console.log(res.data) ||
             dispatch({ type: DELETE_SUCCESS, payload: res.data })
         })
         .catch(err => {
@@ -60,7 +60,7 @@ export const PUT_ERROR = "PUT_ERROR";
 export const editSmurf = smurf => dispatch => {
     dispatch({ type: PUT_START });
     axios.put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
-        .then(res => {
+        .then(res => { console.log(res.data) ||
             dispatch({ type: PUT_SUCCESS, payload: res.data })
         })
         .catch(err => {
