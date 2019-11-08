@@ -26,3 +26,30 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.smurfForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 2%;
+}
+
+.smurfForm div {
+  margin: 3%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+label {
+  margin: 5px;
+}
+
+.editSubmit {
+  width: 25vw;
+  position: relative;
+  left: 37vw;
+}
