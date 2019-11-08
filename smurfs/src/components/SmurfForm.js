@@ -1,17 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addSmurf, editSmurf } from "../actions";
 
 function SmurfForm() {
     const [input, setInput] = useState({ name: "", age: "", height: "" });
+    const dispatch = useDispatch();
+    const smurfToEdit = useSelector(state => state.smurfToEdit);
 
     const handleInputChange = e => {
-        setInput({...input, [e.target.name]: e.target.value})
-    }
+        setInput({ ...input, [e.target.name]: e.target.value });
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
-        // TODO: post smurf
+        if (!smurfToEdit) {
+            dispatch(
+                addSmurf({ ...input, id: Date.now() })
+            );
+        } else {
+            dispatch(editSmurf(input));
+        }
         setInput({ name: "", age: "", height: "" });
-    }
+    };
+
+    useEffect(() => {
+        if (smurfToEdit) setInput({...smurfToEdit});
+    }, [smurfToEdit])
 
     return (
         <form onSubmit={handleSubmit}>
@@ -41,13 +56,13 @@ function SmurfForm() {
                     name="height"
                     value={input.height}
                     onChange={handleInputChange}
-                    type="number"
+                    type="text"
                     placeholder="height in cm"
                 />
             </label>
-            <button>add smurf</button>
+
         </form>
-    )
+    );
 }
 
 export default SmurfForm;
