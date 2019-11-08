@@ -18,7 +18,8 @@ function Smurf({ smurf }) {
       <h2>{smurf.name}</h2>
       <p>Age: {smurf.age} years</p>
       <p>Height: {smurf.height}</p>
-
+      <button onClick={() => changeSmurfToEdit(smurf)}>edit smurf</button>
+      <button onClick={() => handleDelete(smurf.id)}>delete smurf</button>
     </div>
   )
 }
